@@ -106,8 +106,8 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Install bower packages
-if EXIST "$DEPLOYMENT_TARGET/bower.json" (
-  pushd "$DEPLOYMENT_TARGET"
+if EXIST "%DEPLOYMENT_TARGET%"\bower.json" (
+  pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd install bower
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
