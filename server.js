@@ -30,17 +30,18 @@ router.get('/home', function(req, res) {
 	res.render('home', data);
 });
 
-router.get('/blog', function(req, res) {
-	res.render('blog', blog);
-});
-
 // about page route (http://localhost:8080/about)
 router.get('/about', function(req, res) {
-	var data = { title: "I'm the about page!" };
+	var data = { title: "About us" };
 	res.render('about', data);	
 });
 
-// register all orur routes
+router.get('/contact', function(req, res) {
+	var data = { title: "Contact us!" };
+	res.render('contact', data);	
+});
+
+// register all our routes
 app.use('/', router);
 
 app.use(express.static(__dirname + '/public'));

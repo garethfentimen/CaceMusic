@@ -1,0 +1,12 @@
+{
+  "name": "gfentimencom",
+  "main": "server.js",
+  "version": "0.0.1", 
+  "dependencies": {
+   "express": "latest",
+	 "body-parser": "latest",
+	 "express-handlebars":"latest",
+	 "serve-favicon":"latest",
+	 "path":"latest"
+  }
+}
