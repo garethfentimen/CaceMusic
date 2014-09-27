@@ -22,6 +22,16 @@ angular.module('caceMusic', ['ngRoute'])
 			controller: 'ErrolMcGlashanCtrl',
 			templateUrl: '/views/ErrolMcGlashan.html'
 		});
+
+	$routeProvider.when('/SavageNomads', {
+			controller: 'SavageNomadsCtrl',
+			templateUrl: '/views/SavageNomads.html'
+		});
+
+	$routeProvider.when('/MSet', {
+			controller: 'MSetCtrl',
+			templateUrl: '/views/MSet.html'
+		});
 }]) 
 
 .controller('artistsCtrl', ['$scope', '$location', function($scope, $location) {
@@ -33,6 +43,17 @@ angular.module('caceMusic', ['ngRoute'])
 			case 1: 
 			{
 				$location.path("/ErrolMcGlashan");
+				break;
+			}
+			case 2: 
+			{
+				$location.path("/SavageNomads");
+				break;
+			}
+			case 3: 
+			{
+				$location.path("/MSet");
+				break;
 			}
 			
 		}
@@ -41,5 +62,13 @@ angular.module('caceMusic', ['ngRoute'])
 }])
 
 .controller('ErrolMcGlashanCtrl', ['$scope', '$location', function($scope, $location) {
+	
+}])
+
+.controller('SavageNomadsCtrl', ['$scope', '$location', function($scope, $location) {
+	
+}])
+
+.controller('MSetCtrl', ['$scope', '$location', function($scope, $location) {
 	
  }]);

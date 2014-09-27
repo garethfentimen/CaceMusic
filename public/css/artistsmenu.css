@@ -1,0 +1,13 @@
+.artistsmenu {
+
+}
+
+.artistsmenu a {
+	padding: 10px;
+}
+
+.artistsmenu img {
+	cursor: pointer;
+	height: 320px;
+	width: 320px;
+}

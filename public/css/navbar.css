@@ -6,3 +6,8 @@ body {
 .navbar {
   margin-bottom: 20px;
 }
+
+.main-banner {
+	width: 90%;
+	padding-left: 5%;
+}
