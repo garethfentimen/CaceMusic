@@ -6,7 +6,7 @@ $(document).ready(function() {
 	var splitUrl = url.split("/");
 	var location = splitUrl[splitUrl.length-1];
 	
-	console.log(location);
+	//console.log(location);
 
 	$(".nav li").each(function(index)
 	{

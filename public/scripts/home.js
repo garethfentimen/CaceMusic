@@ -4,7 +4,7 @@ angular.module('caceMusic', ['ngRoute'])
     
     $rootScope.$on('$routeChangeStart', function (event, next, current) {
 
-    	if (next.$route.controller == "")
+    	if (next.$$route.controller == "")
     	{
     		$location.path("/");	
     	}
@@ -16,11 +16,6 @@ angular.module('caceMusic', ['ngRoute'])
     $routeProvider.when('/', {
 			controller: 'artistsCtrl',
 			templateUrl: '/views/ArtistMenu.html'
-		});
-
-	$routeProvider.when('/ErrolMcGlashan', {
-			controller: 'ErrolMcGlashanCtrl',
-			templateUrl: '/views/ErrolMcGlashan.html'
 		});
 
 	$routeProvider.when('/SavageNomads', {
@@ -35,34 +30,39 @@ angular.module('caceMusic', ['ngRoute'])
 }]) 
 
 .controller('artistsCtrl', ['$scope', '$location', function($scope, $location) {
-	//$scope.artist = "";
 	
-	$scope.artistClick = function(artistNumber) {
-		switch (artistNumber)
-		{
-			case 1: 
-			{
-				$location.path("/ErrolMcGlashan");
-				break;
-			}
-			case 2: 
-			{
-				$location.path("/SavageNomads");
-				break;
-			}
-			case 3: 
-			{
-				$location.path("/MSet");
-				break;
-			}
-			
-		}
-		
-	};	
-}])
+	function Artist(artistName, imageUrl) {
+		this.name = artistName,
+		this.imageUrl = imageUrl
+	};
 
-.controller('ErrolMcGlashanCtrl', ['$scope', '$location', function($scope, $location) {
+	$scope.artists = [
+		new Artist("SavageNomads", "images/SavageNomads.png"),
+		new Artist("MSet", "images/MSet.png")
+	];
+
+	console.log($scope.artists);
+
+	$scope.switchImage = function(artist) {
+		if (artist.imageUrl.indexOf("_Rollover") == -1)
+		{
+			artist.imageUrl = artist.imageUrl.split(".")[0];
+			artist.imageUrl += "_Rollover.png";	
+		}
+	};
+
+	$scope.switchImageBack = function(artist) {
+		if (artist.imageUrl.indexOf("_Rollover") > -1)
+		{
+			artist.imageUrl = artist.imageUrl.split("_")[0];
+			artist.imageUrl += ".png";	
+		}
+	};
 	
+	$scope.artistClick = function(artist) {
+		var artistLocation = "/" + artist.name;
+		$location.path(artistLocation);
+	};	
 }])
 
 .controller('SavageNomadsCtrl', ['$scope', '$location', function($scope, $location) {
