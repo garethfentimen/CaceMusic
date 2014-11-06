@@ -38,13 +38,14 @@ angular.module('caceMusic', ['ngRoute'])
 
 	$scope.artists = [
 		new Artist("SavageNomads", "images/SavageNomads.png"),
-		new Artist("MSet", "images/MSet.png")
+		new Artist("MSet", "images/MSet.png"),
+		new Artist("", "images/comingsoon.png")
 	];
 
 	console.log($scope.artists);
 
 	$scope.switchImage = function(artist) {
-		if (artist.imageUrl.indexOf("_Rollover") == -1)
+		if (artist.name != "" && artist.imageUrl.indexOf("_Rollover") == -1)
 		{
 			artist.imageUrl = artist.imageUrl.split(".")[0];
 			artist.imageUrl += "_Rollover.png";	
@@ -52,7 +53,7 @@ angular.module('caceMusic', ['ngRoute'])
 	};
 
 	$scope.switchImageBack = function(artist) {
-		if (artist.imageUrl.indexOf("_Rollover") > -1)
+		if (artist.name != "" && artist.imageUrl.indexOf("_Rollover") > -1)
 		{
 			artist.imageUrl = artist.imageUrl.split("_")[0];
 			artist.imageUrl += ".png";	
@@ -60,8 +61,11 @@ angular.module('caceMusic', ['ngRoute'])
 	};
 	
 	$scope.artistClick = function(artist) {
-		var artistLocation = "/" + artist.name;
-		$location.path(artistLocation);
+		if (artist.name != "")
+		{
+			var artistLocation = "/" + artist.name;
+			$location.path(artistLocation);
+		}
 	};	
 }])
 
