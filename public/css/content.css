@@ -1,0 +1,9 @@
+.italic_content
+{
+	font-style: italic
+}
+
+.row > div {
+	background-color: #FEF8F9;
+	border: 1px solid #ADDBC5;
+}
