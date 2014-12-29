@@ -42,8 +42,6 @@ angular.module('caceMusic', ['ngRoute'])
 		new Artist("", "images/comingsoon.png")
 	];
 
-	console.log($scope.artists);
-
 	$scope.switchImage = function(artist) {
 		if (artist.name != "" && artist.imageUrl.indexOf("_Rollover") == -1)
 		{
