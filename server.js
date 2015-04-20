@@ -44,9 +44,9 @@ router.get('/contact', function(req, res) {
 // redirect for non-www
 app.all('/*', function(req, res, next) {
   if (req.headers.host.match(/^www\./) !== null) {
-    res.redirect(301, req.protocol + '://' + req.headers.host.replace(/^www\./, '') + req.url);
+    next();
   } else {
-    next();     
+    res.redirect(301, req.protocol + '://' + req.headers.host.replace(/^www\./, '') + req.url);
   }
 })
 
