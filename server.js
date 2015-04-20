@@ -42,13 +42,13 @@ router.get('/contact', function(req, res) {
 });
 
 // redirect for non-www
-//app.all('/*', function(req, res, next) {
-//  if (req.headers.host.match(/^www\./) !== null) {
-//    next();
-//  } else {
-//    res.redirect(301, req.protocol + '://' + req.headers.host.replace(/^www\./, '') + req.url);
-//  }
-//})
+app.all('/.*/', function(req, res, next) {
+  if (req.headers.host.match(/^www\..*/i) !== null) {
+    next();
+  } else {
+    res.redirect(301, req.protocol + '://www.' + req.url);
+  }
+})
 
 app.set('trust proxy', true);
 
