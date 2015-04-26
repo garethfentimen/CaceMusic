@@ -46,7 +46,12 @@ app.all(/.*/, function(req, res, next) {
   if (req.headers.host.match(/^www\..*/i)) {
     next();
   } else {
-    res.redirect(301, req.protocol + '://www.' + req.header("host"));
+    if (req.hostname.match(/^localhost*/i))
+    {
+		next();
+    } else {
+    	res.redirect(301, req.protocol + '://www.' + req.header("host"));
+    }
   }
 })
 
