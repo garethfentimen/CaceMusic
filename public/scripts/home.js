@@ -73,4 +73,8 @@ angular.module('caceMusic', ['ngRoute'])
 
 .controller('MSetCtrl', ['$scope', '$location', function($scope, $location) {
 	
+	$scope.scrollTop = function() {
+		window.scrollTo(0,0);
+	};
+
  }]);
