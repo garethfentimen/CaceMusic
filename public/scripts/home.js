@@ -27,6 +27,11 @@ angular.module('caceMusic', ['ngRoute'])
 			controller: 'MSetCtrl',
 			templateUrl: '/views/MSet.html'
 		});
+
+	$routeProvider.when('/Nuala', {
+			controller: 'NualaCtrl',
+			templateUrl: '/views/Nuala.html'
+		});
 }]) 
 
 .controller('artistsCtrl', ['$scope', '$location', function($scope, $location) {
@@ -39,6 +44,7 @@ angular.module('caceMusic', ['ngRoute'])
 	$scope.artists = [
 		new Artist("SavageNomads", "images/SavageNomads.png"),
 		new Artist("MSet", "images/MSet.png"),
+		new Artist("Nuala", "images/Nuala.png"),
 		new Artist("", "images/comingsoon.png")
 	];
 
@@ -69,6 +75,18 @@ angular.module('caceMusic', ['ngRoute'])
 
 .controller('SavageNomadsCtrl', ['$scope', '$location', function($scope, $location) {
 	
+	$scope.scrollTop = function() {
+		window.scrollTo(0,0);
+	};
+
+}])
+
+.controller('NualaCtrl', ['$scope', '$location', function($scope, $location) {
+	
+	$scope.scrollTop = function() {
+		window.scrollTo(0,0);
+	};
+
 }])
 
 .controller('MSetCtrl', ['$scope', '$location', function($scope, $location) {

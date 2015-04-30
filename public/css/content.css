@@ -7,3 +7,27 @@
 	background-color: #FEF8F9;
 	border: 1px solid #ADDBC5;
 }
+
+p, h1, h2, h3 {
+		font-family: 'Droid Sans', sans-serif;
+	}
+
+p {
+	font-size: 18px;
+}
+
+.no-border {
+	border: none !important;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+.push-right {
+	margin: 0 1em 0 0;
+}
+
+.push-left {
+	margin: 0 0 0 1em;
+}
