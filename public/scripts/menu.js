@@ -7,7 +7,19 @@ document.addEventListener('DOMContentLoaded', function(){
 	var splitUrl = url.split("/");
 	var location = splitUrl[splitUrl.length-1];
 
-	var elements = document.querySelectorAll(".nav li");
+	var socialMediaElements = document.querySelectorAll(".navbar-left li");
+
+	Array.prototype.forEach.call(socialMediaElements, function(socialMediaElement){
+		socialMediaElement.addEventListener("mouseenter", function(el) {
+		 	addClass(el.target, "highlight-image");
+		}, false);
+
+		socialMediaElement.addEventListener("mouseleave", function(el) {
+			removeClass(el.target, "highlight-image");	
+		}, false);
+	});
+
+	var elements = document.querySelectorAll(".navbar-right li");
 	Array.prototype.forEach.call(elements, function(el){
 		
 		var menuText = el.textContent.toLowerCase();
